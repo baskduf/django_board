@@ -22,6 +22,9 @@ from django.views import View
 from board import views
 
 urlpatterns = [
+    path("rewrite_process", views.rewrite_process, name="rewrite_process"),
+    path("rewrite", views.rewrite, name="rewrite"),
+    path("delete", views.delete, name="delete"),
     path("view", views.view_post, name="view"),
     path("write_process", views.write_process, name="write_process"),
     path("write", views.write, name="write"),

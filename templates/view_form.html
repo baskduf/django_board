@@ -44,6 +44,14 @@
               {{ post.content }}
               <!-- 필요한 만큼 반복하여 게시물 목록을 추가할 수 있습니다. -->
             </div>
+            {% if request.user.is_staff or request.user.username == post.author.username %}
+                <a href="{% url 'delete' %}?boardNo={{ post.id }}">
+                    <button class="btn btn-danger">Delete</button>
+                </a>
+                <a href="{% url 'rewrite' %}?boardNo={{ post.id }}">
+                    <button class="btn btn-success">Rewrite</button>
+                </a>
+            {% endif %}
           </div>
         </div>
       <div class="col-md-4">
@@ -70,6 +78,8 @@
                   {{ form.as_p }}
                   <button type="submit" class="btn btn-primary">Login</button>
                 </form>
+              <a href="{% url 'sign_up' %}">
+                      <button type="submit" class="btn btn-success">SignUp</button></a>
               </div>
               {% endif %}
               <!-- 로그인 종료 -->

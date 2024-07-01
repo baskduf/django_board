@@ -76,6 +76,8 @@
                   {{ form.as_p }}
                   <button type="submit" class="btn btn-primary">Login</button>
                 </form>
+                <a href="{% url 'sign_up' %}">
+                      <button type="submit" class="btn btn-success">SignUp</button></a>
               </div>
               {% endif %}
               <!-- 로그인 종료 -->
